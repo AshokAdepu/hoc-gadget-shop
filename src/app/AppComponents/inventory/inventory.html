@@ -20,30 +20,30 @@
 
     <div class="col-sm-3">
       <label class="visually-hidden" for="specificSizeInputName">Product Id</label>
-      <input
-        type="text" class="form-control" id="specificSizeInputName" placeholder="Product ID" [(ngModel)]="inventoryData.productId" name="productId">
+      <input type="text" class="form-control" id="specificSizeInputName" [disabled]="disableProductIdInput"
+        placeholder="Product ID" [(ngModel)]="inventoryData.productId" name="productId">
     </div>
 
     <div class="col-sm-3">
       <label class="visually-hidden" for="specificSizeSelect">Product</label>
       <select class="form-select" id="specificSizeSelect" [(ngModel)]="inventoryData.productName" name="productName">
         <option selected>Choose...</option>
-        <option value="1">EarPhones</option>
-        <option value="2">Mobiles</option>
-        <option value="3">PlayStation</option>
+        <option>EarPhones</option>
+        <option>Mobiles</option>
+        <option>PlayStation</option>
       </select>
     </div>
 
     <div class="col-sm-3">
       <label class="visually-hidden" for="specificSizeInputName">Quantity Available</label>
-      <input
-        type="text" class="form-control" id="specificSizeInputName" placeholder="0" [(ngModel)]="inventoryData.availableQty" name="availableQty">
+      <input type="text" class="form-control" id="specificSizeInputName" placeholder="0"
+        [(ngModel)]="inventoryData.availableQty" name="availableQty">
     </div>
 
     <div class="col-sm-3">
       <label class="visually-hidden" for="specificSizeInputName">Quantity Available</label>
-      <input
-        type="text" class="form-control" id="specificSizeInputName" placeholder="0" [(ngModel)]="inventoryData.reorderPoint" name="reorderPoint">
+      <input type="text" class="form-control" id="specificSizeInputName" placeholder="0"
+        [(ngModel)]="inventoryData.reorderPoint" name="reorderPoint">
     </div>
     <div class="col-auto">
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -69,8 +69,9 @@
         <td>{{inventory.availableQty}}</td>
         <td>{{inventory.reOrderPoint}}</td>
         <td>
-          <button type="button" class="btn btn-primary">Edit</button>
-          <button type="button" class="btn btn-danger mx-2" (click)="openConfirmDialog(inventory.productId)">Delete</button>
+          <button type="button" class="btn btn-primary" (click)="populateFormForEdit(inventory)">Edit</button>
+          <button type="button" class="btn btn-danger mx-2"
+            (click)="openConfirmDialog(inventory.productId)">Delete</button>
         </td>
       </tr>
 
