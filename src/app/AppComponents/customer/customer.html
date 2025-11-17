@@ -1,0 +1,33 @@
+<div class="row g-3 mx-3 py-3">
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary" (click)="openCustomerDialog()">Add a new Customer</button>
+  </div>
+</div>
+<div class="row mx-3">
+  <h5>Customer details</h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Customer Id</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Registration Date</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customerDetails">
+        <th scope="row">{{customer.customerId}}</th>
+        <td>{{customer.firstName}} {{customer.lastName}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.registrationDate}}</td>
+        <td>
+          <button type="button" class="btn btn-primary">Edit</button>
+          <button type="button" class="btn btn-danger mx-2" (click)="openconfirmDialog(customer.customerId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
