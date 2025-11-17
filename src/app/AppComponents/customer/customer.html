@@ -24,7 +24,7 @@
         <td>{{customer.phone}}</td>
         <td>{{customer.registrationDate}}</td>
         <td>
-          <button type="button" class="btn btn-primary">Edit</button>
+          <button type="button" class="btn btn-primary" (click)="openEditDialogBox(customer)">Edit</button>
           <button type="button" class="btn btn-danger mx-2" (click)="openconfirmDialog(customer.customerId)">Delete</button>
         </td>
       </tr>

@@ -51,4 +51,21 @@ export class Customer implements OnInit {
       this.getCustomerDetails();
     })
   }
+openEditDialogBox(customer: any){
+ const modalReference = this.modalService.open(CustomerDialogBox);
+ modalReference.componentInstance.customer = {
+  customerId : customer.customerId,
+  firstName : customer.firstName,
+  lastName : customer.lastName,
+  email : customer.email,
+  registrationDate : customer.registrationDate,
+  phone : customer.phone
+ };
+ modalReference.result.then(data => {
+  if (data.event == 'closed') {
+        this.getCustomerDetails();
+      }
+ })
+}
+
 }

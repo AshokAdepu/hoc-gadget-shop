@@ -3,7 +3,7 @@
   <form (ngSubmit)="onSubmit()">
     <div class="row py-3">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id" [(ngModel)]="customerDetails.customerId" name="customerId">
+        <input type="text" class="form-control" placeholder="Customer Id" aria-label="Customer Id" [(ngModel)]="customerDetails.customerId" name="customerId" [disabled]="disableCustomerIdInput">
       </div>
       <div class="col">
         <input type="date" class="form-control" placeholder="Registration Date" aria-label="Registration Date" [(ngModel)]="customerDetails.registrationDate" name="registrationDate">
@@ -25,6 +25,6 @@
         <input type="text" class="form-control" placeholder="Email" aria-label="Email" [(ngModel)]="customerDetails.email" name="email">
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">{{btnText}}</button>
   </form>
 </div>
